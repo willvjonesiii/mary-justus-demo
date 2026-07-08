@@ -159,17 +159,26 @@ section{padding:var(--sp-4) clamp(1.5rem,5vw,4rem);}
 .section-head h2 em{font-style:italic;color:var(--peach);}
 .bg-cream .section-head h2 em{color:var(--coral);}
 
-/* ===== PILLARS ===== */
-.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-2);}
-.pillar{
-  padding:var(--sp-3) var(--sp-2);
-  border:1px solid var(--hairline);
-  text-align:center;
-  position:relative;
+/* ===== TRIQUETRA — Individuation Knot ===== */
+.knot-wrap{position:relative;max-width:640px;margin:0 auto;aspect-ratio:1/1;}
+.knot-wrap svg{width:100%;height:100%;overflow:visible;}
+.knot-base-petal{fill:none;stroke:var(--peach);stroke-width:1.4;opacity:0.32;transition:opacity .5s ease;}
+.knot-wrap.engaged .knot-base-petal{opacity:0.14;}
+.knot-live-petal{fill:url(#petalGlow);stroke:var(--peach-lt);stroke-width:1.5;opacity:0;transform-origin:center;transition:opacity .6s ease,transform .6s ease,filter .6s ease;filter:drop-shadow(0 0 0 rgba(232,168,124,0));}
+.knot-live-petal.active{opacity:0.94;filter:drop-shadow(0 0 22px rgba(232,168,124,0.55));}
+.knot-center-dot{fill:var(--peach);opacity:0.5;transition:opacity .5s ease,filter .5s ease;}
+.knot-wrap.all-seen .knot-center-dot{opacity:1;filter:drop-shadow(0 0 14px rgba(232,168,124,0.85));}
+.knot-label{
+  position:absolute;text-align:center;width:220px;margin-left:-110px;
+  opacity:0;transform:translateY(10px);transition:opacity .5s ease,transform .5s ease;pointer-events:none;
 }
-.pillar .glyph{font-size:2.2rem;color:var(--peach);margin-bottom:var(--sp-1);display:block;}
-.pillar h3{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2rem;color:var(--cream);margin-bottom:1rem;}
-.pillar p{font-size:0.95rem;opacity:0.82;}
+.knot-label.active{opacity:1;transform:none;}
+.knot-label h3{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.8rem;color:var(--cream);margin-bottom:0.6rem;}
+.knot-label p{font-size:0.86rem;opacity:0.82;line-height:1.5;}
+.knot-label-presence{top:2%;left:50%;}
+.knot-label-love{bottom:6%;left:20%;}
+.knot-label-power{bottom:6%;left:80%;}
+.knot-hint{text-align:center;font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--peach);opacity:0.6;margin-top:var(--sp-2);}
 
 /* ===== ABOUT / MEET ===== */
 .meet{display:grid;grid-template-columns:0.634fr 1fr;gap:var(--sp-3);align-items:center;}
@@ -368,23 +377,45 @@ body.a11y-mode .drama{font-weight:500 !important;}
       <p class="eyebrow">Beyond Modalities. Beyond Maps.</p>
       <h2>The architecture of <em>conscious healing.</em></h2>
     </div>
-    <div class="pillars">
-      <div class="pillar rv">
-        <span class="glyph">✦</span>
+
+    <div class="knot-wrap rv" id="knotWrap">
+      <svg viewBox="-160 -160 320 320" id="knotSvg">
+        <defs>
+          <radialGradient id="petalGlow" cx="50%" cy="35%" r="70%">
+            <stop offset="0%" stop-color="#f0c39e" stop-opacity="0.85"></stop>
+            <stop offset="100%" stop-color="#c9976a" stop-opacity="0.15"></stop>
+          </radialGradient>
+        </defs>
+
+        <g id="baseKnot">
+          <path class="knot-base-petal" transform="rotate(0)"   d="M0,0 Q65,-55 0,-135 Q-65,-55 0,0 Z"></path>
+          <path class="knot-base-petal" transform="rotate(120)" d="M0,0 Q65,-55 0,-135 Q-65,-55 0,0 Z"></path>
+          <path class="knot-base-petal" transform="rotate(240)" d="M0,0 Q65,-55 0,-135 Q-65,-55 0,0 Z"></path>
+        </g>
+
+        <g id="livePetals">
+          <path class="knot-live-petal" data-pillar="presence" transform="rotate(0)"   d="M0,0 Q65,-55 0,-135 Q-65,-55 0,0 Z"></path>
+          <path class="knot-live-petal" data-pillar="love"     transform="rotate(120)" d="M0,0 Q65,-55 0,-135 Q-65,-55 0,0 Z"></path>
+          <path class="knot-live-petal" data-pillar="power"    transform="rotate(240)" d="M0,0 Q65,-55 0,-135 Q-65,-55 0,0 Z"></path>
+        </g>
+
+        <circle class="knot-center-dot" cx="0" cy="0" r="4"></circle>
+      </svg>
+
+      <div class="knot-label knot-label-presence" data-pillar="presence">
         <h3>Presence</h3>
         <p>Presence does not need to be achieved. The part of you that is aware right now, reading these words, is this immediate truth.</p>
       </div>
-      <div class="pillar rv">
-        <span class="glyph">♡</span>
+      <div class="knot-label knot-label-love" data-pillar="love">
         <h3>Love</h3>
         <p>A compassionate field held without demand, where what is dissolving is the deep, unconscious belief in separation.</p>
       </div>
-      <div class="pillar rv">
-        <span class="glyph">⚡</span>
+      <div class="knot-label knot-label-power" data-pillar="power">
         <h3>Power</h3>
         <p>The power of your own light, recognized and embodied. Not transformed into something new. Remembered as what you already are.</p>
       </div>
     </div>
+    <p class="knot-hint rv">Move within the knot to awaken each pillar</p>
   </div>
 </section>
 
@@ -547,6 +578,53 @@ const io = new IntersectionObserver(entries => {
   entries.forEach(e => e.isIntersecting && e.target.classList.add('visible'));
 }, { threshold:0.12 });
 document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+// Triquetra — Individuation Knot
+(function () {
+  const wrap = document.getElementById('knotWrap');
+  if (!wrap) return;
+  const livePetals = Array.from(document.querySelectorAll('.knot-live-petal'));
+  const labels = Array.from(document.querySelectorAll('.knot-label'));
+  const pillars = ['presence', 'love', 'power'];
+  const angleFor = { presence: 0, love: 120, power: 240 };
+  const seen = new Set();
+  let activePillar = null;
+
+  function setActive(pillar) {
+    if (pillar === activePillar) return;
+    activePillar = pillar;
+    wrap.classList.toggle('engaged', !!pillar);
+    livePetals.forEach(p => p.classList.toggle('active', p.dataset.pillar === pillar));
+    labels.forEach(l => l.classList.toggle('active', l.dataset.pillar === pillar));
+    if (pillar) {
+      seen.add(pillar);
+      if (seen.size === pillars.length) wrap.classList.add('all-seen');
+    }
+  }
+
+  wrap.addEventListener('mousemove', e => {
+    const rect = wrap.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const mx = e.clientX - cx;
+    const my = e.clientY - cy;
+    const dist = (Math.hypot(mx, my) / (rect.width / 2)) * 160;
+    let angle = Math.atan2(mx, -my) * 180 / Math.PI;
+    if (angle < 0) angle += 360;
+
+    if (dist < 18) { setActive(null); return; }
+
+    let closest = null, closestDiff = 999;
+    pillars.forEach(p => {
+      let diff = Math.abs(angle - angleFor[p]);
+      diff = Math.min(diff, 360 - diff);
+      if (diff < closestDiff) { closestDiff = diff; closest = p; }
+    });
+    setActive(closestDiff <= 60 ? closest : null);
+  });
+
+  wrap.addEventListener('mouseleave', () => setActive(null));
+})();
 
 // Living image hero
 const heroPortal = document.getElementById('heroPortal');
