@@ -9,18 +9,12 @@
 <link rel="apple-touch-icon" href="https://designmywebsitenow.com/images/favicon-merkaba.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,400;1,9..144,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --kaitoke:#2f3c2c;
-  --marsh:#1f2a1c;
-  --burlywood:#d8aa78;
-  --grullo:#ada07d;
-  --shadow-gold:#9e9271;
-  --vista-white:#f9f6f3;
-  --platinum:#e7e9e1;
-  --dim-gray:#676767;
-  --soft-black:#111;
+  --kaitoke:#2f3c2c; --marsh:#1f2a1c; --burlywood:#d8aa78; --grullo:#ada07d;
+  --shadow-gold:#9e9271; --vista-white:#f9f6f3; --platinum:#e7e9e1;
+  --dim-gray:#676767; --soft-black:#111;
   --sp-1:1.5rem; --sp-2:2.6rem; --sp-3:4.5rem; --sp-4:7.8rem;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -29,338 +23,494 @@ body{background:var(--vista-white);color:var(--marsh);font-family:'Jost',sans-se
 img{max-width:100%;display:block;}
 em,.em{font-style:italic;color:var(--burlywood);}
 a{color:inherit;text-decoration:none;}
-.eyebrow{font-size:0.76rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--shadow-gold);font-weight:500;}
-.rv{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease;}
+.eyebrow{font-size:0.76rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--shadow-gold);font-weight:500;}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .75s ease;}
 .rv.visible{opacity:1;transform:none;}
-
-/* NAV */
-.nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:1.5rem clamp(1.5rem,5vw,4rem);transition:background .4s ease,padding .4s ease,border-color .4s ease;border-bottom:1px solid transparent;}
-.nav.scrolled{background:rgba(249,246,243,0.9);backdrop-filter:blur(14px);border-bottom:1px solid rgba(47,60,44,0.12);padding:1rem clamp(1.5rem,5vw,4rem);}
-.nav-left{display:flex;flex-direction:column;line-height:1.1;}
-.nav-left .brand{font-family:'Fraunces',serif;font-size:1.5rem;font-style:italic;color:var(--marsh);}
-.nav-left .tagline-mini{font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--shadow-gold);margin-top:0.2rem;}
-.nav-right{display:flex;align-items:center;gap:2rem;}
-.nav-links{display:flex;gap:1.5rem;}
-.nav-links a{font-size:0.82rem;color:var(--marsh);opacity:0.8;transition:opacity .3s,color .3s;}
-.nav-links a:hover{opacity:1;color:var(--burlywood);}
-.nav-cta{white-space:nowrap;flex-shrink:0;background:var(--kaitoke);color:var(--vista-white);padding:0.8rem 1.6rem;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;border-radius:100px;transition:background .3s;}
-.nav-cta:hover{background:var(--marsh);}
-
-/* HERO — crossfading image stack */
-.hero{position:relative;min-height:100dvh;display:flex;align-items:flex-end;overflow:hidden;}
-.hero-stack{position:absolute;inset:0;z-index:0;}
-.hero-stack img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease;}
-.hero-stack img.active{opacity:1;}
-.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to top, rgba(31,42,28,0.88) 0%, rgba(31,42,28,0.45) 45%, rgba(31,42,28,0.25) 100%);}
-.hero-content{position:relative;z-index:2;padding:0 clamp(1.5rem,6vw,4rem) var(--sp-4);max-width:900px;}
-.hero-content .eyebrow{color:var(--burlywood);margin-bottom:1rem;}
-.hero-big{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(2.6rem,7vw,5.6rem);line-height:1.02;color:var(--vista-white);text-wrap:balance;margin-bottom:1.3rem;}
-.hero-big em{font-style:italic;color:var(--burlywood);}
-.hero-sub{font-size:1.05rem;color:var(--platinum);max-width:44ch;margin-bottom:2rem;}
-.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;}
-.btn{white-space:nowrap;flex-shrink:0;padding:1rem 2rem;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;border-radius:100px;transition:background .3s,color .3s,border-color .3s;}
-.btn-primary{background:var(--burlywood);color:var(--marsh);border:1px solid var(--burlywood);}
-.btn-primary:hover{background:transparent;color:var(--vista-white);}
-.btn-ghost{border:1px solid rgba(249,246,243,0.5);color:var(--vista-white);background:transparent;}
-.btn-ghost:hover{border-color:var(--burlywood);color:var(--burlywood);}
-
-/* SECTION SHELL */
 section{padding:var(--sp-4) clamp(1.5rem,5vw,4rem);}
 .bg-white{background:var(--vista-white);}
 .bg-platinum{background:var(--platinum);}
-.bg-dark{background:var(--marsh);color:var(--vista-white);}
-.section-inner{max-width:1200px;margin:0 auto;}
-.section-head{text-align:center;max-width:640px;margin:0 auto var(--sp-3);}
-.section-head h2{font-family:'Fraunces',serif;font-size:clamp(2rem,4vw,3rem);font-weight:400;line-height:1.15;text-wrap:balance;margin-top:0.6rem;}
-.section-head h2 em{font-style:italic;color:var(--burlywood);}
-.bg-dark .section-head h2 em{color:var(--burlywood);}
+.wrap{max-width:1200px;margin:0 auto;}
+.wrap-md{max-width:940px;margin:0 auto;}
 
-/* ABOUT */
-.about{display:grid;grid-template-columns:0.62fr 1fr;gap:var(--sp-3);align-items:center;}
-.about-photo{position:relative;overflow:hidden;border-radius:8px;}
-.about-photo img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5;}
-.about-body h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.8rem,3.2vw,2.6rem);line-height:1.2;margin-bottom:1.6rem;text-wrap:balance;}
-.about-body h2 em{font-style:italic;color:var(--burlywood);}
-.about-body p{margin-bottom:1.2rem;font-size:0.98rem;color:var(--dim-gray);max-width:56ch;}
-.about-quote{font-family:'Fraunces',serif;font-style:italic;font-size:1.4rem;color:var(--kaitoke);border-left:2px solid var(--burlywood);padding-left:1.4rem;margin:1.6rem 0;max-width:52ch;}
-.credentials{display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:1rem;}
-.credential{font-size:0.66rem;letter-spacing:0.06em;text-transform:uppercase;border:1px solid rgba(47,60,44,0.2);color:var(--kaitoke);padding:0.5rem 0.9rem;border-radius:100px;}
+/* Button v1 — gold/dark line-fill button (real Breathiva mechanism) */
+.rt-btn{position:relative;display:inline-flex;align-items:center;gap:0.6rem;white-space:nowrap;flex-shrink:0;padding:1rem 1.8rem;font-size:0.74rem;letter-spacing:0.1em;text-transform:uppercase;border:1px solid var(--marsh);color:var(--marsh);overflow:hidden;transition:color .4s ease;}
+.rt-btn::before{content:'';position:absolute;inset:0;background:var(--marsh);transform:scaleX(0);transform-origin:left;transition:transform .45s ease;z-index:0;}
+.rt-btn span{position:relative;z-index:1;}
+.rt-btn:hover{color:var(--vista-white);}
+.rt-btn:hover::before{transform:scaleX(1);}
+.rt-btn-gold{border-color:var(--burlywood);color:var(--marsh);background:var(--burlywood);}
+.rt-btn-gold::before{background:var(--marsh);}
+.rt-btn-gold:hover{color:var(--vista-white);}
 
-/* WELLNESS / PILLARS */
-.wellness-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(249,246,243,0.15);}
-.wellness-card{background:var(--marsh);padding:var(--sp-3) var(--sp-2);text-align:center;}
-.wellness-card .num{font-family:'Fraunces',serif;font-style:italic;font-size:1rem;color:var(--burlywood);margin-bottom:1rem;display:block;}
-.wellness-card h3{font-family:'Fraunces',serif;font-size:1.8rem;font-weight:400;color:var(--vista-white);margin-bottom:1rem;}
-.wellness-card p{font-size:0.92rem;color:var(--platinum);opacity:0.85;}
+/* Icon-swap button (real mechanism: two icon layers, opacity crossfade on hover) */
+.rt-btn-icon{position:relative;display:inline-flex;align-items:center;gap:0.9rem;white-space:nowrap;flex-shrink:0;background:var(--vista-white);color:var(--marsh);padding:1rem 1.8rem 1rem 2rem;border-radius:100px;font-size:0.74rem;letter-spacing:0.1em;text-transform:uppercase;}
+.rt-btn-icon .icon-wrap{position:relative;width:18px;height:26px;}
+.rt-btn-icon .icon-one,.rt-btn-icon .icon-two{position:absolute;inset:0;transition:opacity .3s ease;}
+.rt-btn-icon .icon-two{opacity:0;}
+.rt-btn-icon:hover .icon-one{opacity:0;}
+.rt-btn-icon:hover .icon-two{opacity:1;}
 
-/* GROWTH STATS */
-.growth-row{display:grid;grid-template-columns:repeat(3,1fr);text-align:center;}
-.growth-row > div{padding:0 2rem;border-right:1px solid rgba(47,60,44,0.15);}
-.growth-row > div:last-child{border-right:none;}
-.growth-row .stat{font-family:'Fraunces',serif;font-size:clamp(2.4rem,5vw,3.6rem);font-weight:400;color:var(--kaitoke);}
-.growth-row .label{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--shadow-gold);margin-top:0.6rem;}
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:1.5rem clamp(1.5rem,5vw,4rem);transition:background .4s ease,padding .4s ease,border-color .4s ease;}
+.nav.scrolled{background:rgba(249,246,243,0.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(47,60,44,0.12);padding:1rem clamp(1.5rem,5vw,4rem);}
+.nav-left{display:flex;flex-direction:column;line-height:1.1;}
+.nav-left .brand{font-family:'Fraunces',serif;font-size:1.4rem;font-style:italic;color:var(--marsh);}
+.nav-right{display:flex;align-items:center;gap:2rem;}
+.nav-links{display:flex;gap:1.5rem;}
+.nav-links a{font-size:0.82rem;color:var(--marsh);opacity:0.8;}
+.nav-links a:hover{opacity:1;color:var(--burlywood);}
 
-/* CLASS TABLE */
+/* ===== HERO — rt-home-hero-section ===== */
+.hero{position:relative;min-height:100dvh;display:flex;overflow:hidden;color:var(--vista-white);}
+.hero-bg{position:absolute;inset:0;z-index:0;background:var(--marsh);}
+.hero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease;}
+.hero-bg img.active{opacity:1;}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(31,42,28,0.55) 0%, rgba(31,42,28,0.72) 100%);}
+.hero-main{position:relative;z-index:2;display:flex;width:100%;align-items:flex-end;padding:0 clamp(1.5rem,5vw,4rem) var(--sp-3);gap:var(--sp-3);flex-wrap:wrap;}
+.hero-left{flex:1 1 420px;}
+.hero-big-text{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.3rem,2vw,1.6rem);color:var(--burlywood);margin-bottom:0.6rem;}
+.hero-left h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(2.4rem,6vw,4.4rem);line-height:1.02;margin-bottom:1.8rem;text-wrap:balance;}
+.hero-left h1 em{font-style:italic;color:var(--burlywood);}
+.hero-right{flex:1 1 380px;display:flex;flex-direction:column;}
+.faq-block{border-top:1px solid rgba(249,246,243,0.25);padding:1.2rem 0;cursor:pointer;}
+.faq-block:last-child{border-bottom:1px solid rgba(249,246,243,0.25);}
+.faq-block h3{font-family:'Fraunces',serif;font-weight:400;font-size:1.5rem;display:flex;justify-content:space-between;align-items:center;}
+.faq-block h3::after{content:'+';font-size:1.2rem;color:var(--burlywood);transition:transform .3s ease;}
+.faq-block.open h3::after{transform:rotate(45deg);}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .5s ease;}
+.faq-block.open .faq-answer{max-height:6rem;}
+.faq-answer p{font-size:0.92rem;color:var(--platinum);opacity:0.85;padding-top:0.8rem;max-width:38ch;}
+
+/* ===== WELLNESS — rt-wellness-section ===== */
+.wellness{background:var(--marsh);color:var(--vista-white);text-align:center;}
+.wellness-top{max-width:640px;margin:0 auto var(--sp-3);}
+.wellness-top .glyph{width:48px;height:48px;margin:0 auto 1.5rem;border:1px solid var(--burlywood);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--burlywood);font-family:'Fraunces',serif;font-style:italic;}
+.wellness-top h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1.25;text-wrap:balance;margin-bottom:1.2rem;}
+.wellness-top h2 em{font-style:italic;color:var(--burlywood);}
+.wellness-top p{font-size:0.95rem;color:var(--platinum);opacity:0.85;margin-bottom:1.8rem;}
+.therapy-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;}
+.therapy-block .icon{width:52px;height:52px;margin:0 auto 1.2rem;color:var(--burlywood);}
+.therapy-block h4{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:400;margin-bottom:0.7rem;}
+.therapy-block p{font-size:0.86rem;color:var(--platinum);opacity:0.8;}
+
+/* ===== ABOUT — rt-about (asymmetric collage + counter) ===== */
+.about-top{display:grid;grid-template-columns:0.62fr 1fr;gap:var(--sp-3);align-items:center;margin-bottom:var(--sp-3);}
+.about-top img{width:100%;object-fit:cover;aspect-ratio:530/559;border-radius:6px;}
+.about-top h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.8rem,3.2vw,2.4rem);line-height:1.25;margin-bottom:1.2rem;text-wrap:balance;}
+.about-top h2 em{font-style:italic;color:var(--burlywood);}
+.about-top p{font-size:0.95rem;color:var(--dim-gray);margin-bottom:1.5rem;max-width:50ch;}
+.about-bottom{display:grid;grid-template-columns:1.4fr 1fr;gap:1.5rem;margin-bottom:var(--sp-3);}
+.about-bottom-left{position:relative;border-radius:6px;overflow:hidden;}
+.about-bottom-left img{width:100%;height:100%;object-fit:cover;aspect-ratio:640/497;}
+.about-bottom-left-text{position:absolute;inset:0;background:linear-gradient(to top,rgba(31,42,28,0.75),rgba(31,42,28,0.1));display:flex;flex-direction:column;justify-content:flex-end;padding:1.6rem;color:var(--vista-white);}
+.about-bottom-left-text .h3{font-family:'Fraunces',serif;font-style:italic;font-size:1.3rem;margin-bottom:1rem;}
+.about-bottom-right img{width:100%;height:100%;object-fit:cover;aspect-ratio:550/791;border-radius:6px;}
+.counter-row{display:flex;justify-content:center;gap:var(--sp-3);flex-wrap:wrap;text-align:center;}
+.counter-block .num{font-family:'Fraunces',serif;font-size:clamp(2.6rem,5vw,4rem);color:var(--kaitoke);}
+.counter-block .label{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--shadow-gold);margin-top:0.5rem;}
+
+/* ===== GROWTH — rt-growth (image + checklist) ===== */
+.growth{background:var(--platinum);}
+.growth h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.8rem,3.4vw,2.6rem);text-align:center;margin-bottom:var(--sp-3);text-wrap:balance;}
+.growth h2 em{font-style:italic;color:var(--burlywood);}
+.growth-row{display:flex;gap:var(--sp-3);align-items:center;flex-wrap:wrap;}
+.growth-images{flex:1 1 380px;position:relative;min-height:340px;}
+.growth-images .big{width:78%;border-radius:6px;object-fit:cover;aspect-ratio:518/522;}
+.growth-images .small{position:absolute;bottom:-20px;right:0;width:44%;border-radius:6px;object-fit:cover;aspect-ratio:273/272;border:6px solid var(--platinum);}
+.growth-text{flex:1 1 380px;}
+.growth-text p{font-size:0.98rem;color:var(--dim-gray);margin-bottom:1.5rem;max-width:46ch;}
+.check-row{display:flex;align-items:center;gap:0.8rem;padding:0.9rem 0;border-top:1px solid rgba(47,60,44,0.15);}
+.check-row .check-icon{width:20px;height:20px;border-radius:50%;background:var(--kaitoke);color:var(--vista-white);display:flex;align-items:center;justify-content:center;font-size:0.7rem;flex-shrink:0;}
+.check-row span{font-size:0.92rem;}
+
+/* ===== CLASS TABLE — rt-table-v2 ===== */
+.class-table-wrap h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.8rem,3.4vw,2.6rem);text-align:center;margin-bottom:var(--sp-3);text-wrap:balance;}
+.class-table-wrap h2 em{font-style:italic;color:var(--burlywood);}
 .class-table{border-top:1px solid rgba(47,60,44,0.15);}
-.class-row{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;align-items:center;padding:1.3rem 0.5rem;border-bottom:1px solid rgba(47,60,44,0.15);gap:1rem;}
-.class-row .name{font-family:'Fraunces',serif;font-size:1.2rem;color:var(--kaitoke);}
-.class-row .meta{font-size:0.85rem;color:var(--dim-gray);}
+.class-row{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;align-items:center;padding:1.4rem 0.5rem;border-bottom:1px solid rgba(47,60,44,0.15);gap:1rem;position:relative;}
+.class-row:nth-child(odd){background:rgba(216,170,120,0.06);}
+.class-row .name{font-family:'Fraunces',serif;font-size:1.25rem;color:var(--kaitoke);}
 .class-row .meta span{display:block;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--shadow-gold);margin-bottom:0.3rem;}
+.class-row .meta{font-size:0.85rem;color:var(--dim-gray);}
 
-/* GALLERY */
-.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
-.gallery-grid img{width:100%;height:280px;object-fit:cover;border-radius:6px;}
-.gallery-grid > *:nth-child(2){height:340px;margin-top:-30px;}
-.gallery-grid > *:nth-child(3){height:220px;margin-top:30px;}
+/* ===== BOOKING TEASER — rt-booking-v2 ===== */
+.booking-teaser{text-align:center;}
+.booking-teaser .big-label{font-family:'Fraunces',serif;font-style:italic;font-size:1.1rem;color:var(--burlywood);margin-bottom:2rem;}
+.booking-images{display:flex;justify-content:center;align-items:flex-end;gap:1.5rem;flex-wrap:wrap;}
+.booking-left{flex:0 1 300px;text-align:left;}
+.booking-left h3{font-family:'Fraunces',serif;font-weight:400;font-size:2rem;margin-bottom:1.5rem;}
+.booking-mid img{width:220px;height:370px;object-fit:cover;border-radius:6px;}
+.booking-right img{width:180px;height:260px;object-fit:cover;border-radius:6px;align-self:flex-end;}
 
-/* PRICING */
-.pricing-card{border:1px solid rgba(47,60,44,0.15);padding:var(--sp-3);text-align:center;border-radius:8px;max-width:460px;margin:0 auto;}
-.pricing-card .eyebrow{margin-bottom:1rem;}
-.pricing-card h3{font-family:'Fraunces',serif;font-style:italic;font-size:1.8rem;margin-bottom:0.6rem;}
-.pricing-card .price{font-family:'Fraunces',serif;font-size:3rem;color:var(--kaitoke);margin:1rem 0;}
-.pricing-card .price span{font-size:1rem;color:var(--dim-gray);}
-.pricing-card ul{list-style:none;text-align:left;margin:1.6rem 0;}
-.pricing-card ul li{font-size:0.88rem;color:var(--dim-gray);padding-left:1.3rem;position:relative;margin-bottom:0.6rem;}
-.pricing-card ul li::before{content:'✦';position:absolute;left:0;color:var(--burlywood);font-size:0.7rem;}
+/* ===== GALLERY — rt-gallery-v2 (inline-image sentence + masonry) ===== */
+.gallery-sentence{display:flex;flex-wrap:wrap;align-items:center;gap:0.5rem 0.8rem;justify-content:center;margin-bottom:var(--sp-3);}
+.gallery-sentence span{font-family:'Fraunces',serif;font-size:clamp(1.8rem,4vw,3rem);}
+.gallery-sentence img{width:80px;height:64px;object-fit:cover;border-radius:100px;}
+.masonry{display:grid;grid-template-columns:repeat(4,1fr);gap:0.8rem;}
+.masonry-item{position:relative;overflow:hidden;border-radius:6px;}
+.masonry-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
+.masonry-item:nth-child(1){aspect-ratio:1/2;}
+.masonry-item:nth-child(2){aspect-ratio:1/1.6;align-self:end;}
+.masonry-item:nth-child(3){aspect-ratio:1/1.9;}
+.masonry-item:nth-child(4){aspect-ratio:1/1.4;align-self:end;}
+.masonry-item:hover img{transform:scale(1.08);}
+.masonry-overlay{position:absolute;inset:0;background:rgba(31,42,28,0);display:flex;align-items:center;justify-content:center;transition:background .4s ease;}
+.masonry-item:hover .masonry-overlay{background:rgba(31,42,28,0.35);}
+.masonry-plus{position:relative;width:28px;height:28px;opacity:0;transition:opacity .4s ease;}
+.masonry-item:hover .masonry-plus{opacity:1;}
+.masonry-plus::before,.masonry-plus::after{content:'';position:absolute;background:var(--vista-white);}
+.masonry-plus::before{left:50%;top:0;bottom:0;width:1.5px;transform:translateX(-50%);}
+.masonry-plus::after{top:50%;left:0;right:0;height:1.5px;transform:translateY(-50%);}
+.masonry-label{position:absolute;bottom:1rem;left:1rem;color:var(--vista-white);font-family:'Fraunces',serif;font-style:italic;font-size:1rem;}
 
-/* TESTIMONIAL */
-.testimonial{max-width:800px;margin:0 auto;text-align:center;}
-.testimonial blockquote{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.3rem,2.8vw,1.9rem);line-height:1.4;color:var(--vista-white);margin-bottom:1.6rem;text-wrap:balance;}
-.testimonial cite{font-style:normal;font-size:0.76rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--burlywood);}
+/* ===== PRICING — rt-pricing-v2 (active/inactive cards) ===== */
+.pricing{background:var(--marsh);color:var(--vista-white);text-align:center;}
+.pricing-head{max-width:600px;margin:0 auto var(--sp-3);}
+.pricing-head h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.8rem,3.4vw,2.6rem);margin-bottom:1rem;text-wrap:balance;}
+.pricing-head h2 em{font-style:italic;color:var(--burlywood);}
+.pricing-head p{font-size:0.92rem;color:var(--platinum);opacity:0.85;}
+.pricing-cards{display:grid;grid-template-columns:1fr 1fr;gap:2rem;max-width:900px;margin:0 auto;}
+.pricing-card{text-align:left;padding:var(--sp-2);border-radius:8px;border:1px solid rgba(249,246,243,0.15);opacity:0.6;transform:scale(0.96);transition:opacity .3s,transform .3s;}
+.pricing-card.active{opacity:1;transform:scale(1);background:rgba(216,170,120,0.08);border-color:var(--burlywood);}
+.pricing-card h4{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:400;margin-bottom:1rem;}
+.pricing-card .price{font-family:'Fraunces',serif;font-size:2.6rem;color:var(--burlywood);}
+.pricing-card .price-label{font-size:0.82rem;color:var(--platinum);opacity:0.75;margin-bottom:1.2rem;}
+.pricing-card ul{list-style:none;margin-bottom:1.6rem;}
+.pricing-card ul li{font-size:0.86rem;color:var(--platinum);padding-left:1.4rem;position:relative;margin-bottom:0.6rem;opacity:0.9;}
+.pricing-card ul li::before{content:'✓';position:absolute;left:0;color:var(--burlywood);}
+.pricing-card p.desc{font-size:0.86rem;color:var(--platinum);opacity:0.7;margin-bottom:1.2rem;}
 
-/* BOOKING */
-.booking-wrap{display:grid;grid-template-columns:0.6fr 1fr;gap:var(--sp-3);}
-.booking-form{display:flex;flex-direction:column;gap:1.1rem;}
-.booking-form input,.booking-form textarea{background:transparent;border:1px solid rgba(47,60,44,0.2);color:var(--marsh);padding:1rem 1.2rem;font-family:'Jost',sans-serif;font-size:0.9rem;font-weight:300;border-radius:4px;}
-.booking-form input:focus,.booking-form textarea:focus{outline:1px solid var(--burlywood);border-color:var(--burlywood);}
-.booking-form button{white-space:nowrap;flex-shrink:0;background:var(--kaitoke);color:var(--vista-white);border:none;padding:1rem 2rem;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:background .3s;border-radius:100px;}
-.booking-form button:hover{background:var(--marsh);}
-.booking-info h3{font-family:'Fraunces',serif;font-style:italic;font-size:1.8rem;margin-bottom:1rem;}
-.booking-info p{font-size:0.92rem;color:var(--dim-gray);margin-bottom:0.6rem;}
+/* ===== TESTIMONIAL — rt-our-story (single real quote, no fabricated slider) ===== */
+.story{text-align:center;}
+.story .big-label{font-family:'Fraunces',serif;font-style:italic;font-size:1.1rem;color:var(--burlywood);margin-bottom:2rem;}
+.story .quote-mark{font-family:'Fraunces',serif;font-size:3rem;color:var(--burlywood);margin-bottom:1rem;}
+.story blockquote{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.3rem,2.6vw,1.9rem);line-height:1.4;max-width:760px;margin:0 auto 1.5rem;text-wrap:balance;}
+.story .name{font-weight:500;}
+.story .role{font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--shadow-gold);}
 
-/* FOOTER */
-footer{background:var(--marsh);color:var(--platinum);padding:var(--sp-3) clamp(1.5rem,5vw,4rem) var(--sp-2);}
-.footer-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:2rem;max-width:1200px;margin:0 auto;}
-.footer-brand{font-family:'Fraunces',serif;font-style:italic;font-size:1.8rem;color:var(--vista-white);}
-.footer-tagline{font-size:0.82rem;opacity:0.7;margin-top:0.5rem;max-width:32ch;}
-.footer-links{display:flex;gap:2.5rem;flex-wrap:wrap;}
-.footer-col h4{font-size:0.66rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--burlywood);margin-bottom:0.8rem;}
-.footer-col a{display:block;font-size:0.85rem;opacity:0.8;margin-bottom:0.5rem;}
-.footer-bottom{text-align:center;font-size:0.72rem;opacity:0.5;margin-top:var(--sp-3);padding-top:1.5rem;border-top:1px solid rgba(249,246,243,0.15);}
+/* ===== REIKI TRAINING SHOWCASE — rt-yoga-classes-v2 (photo cards, video→photo substitution) ===== */
+.classes-v2{background:var(--marsh);color:var(--vista-white);}
+.classes-v2 .big-heading{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(2rem,5vw,3.4rem);text-align:center;margin-bottom:0.8rem;}
+.classes-v2 h3{text-align:center;font-family:'Jost',sans-serif;font-weight:300;font-size:1.1rem;color:var(--platinum);margin-bottom:var(--sp-3);}
+.classes-v2-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.classes-v2-card{position:relative;border-radius:8px;overflow:hidden;aspect-ratio:3/4;}
+.classes-v2-card img{width:100%;height:100%;object-fit:cover;}
+.classes-v2-card .cap{position:absolute;bottom:1.2rem;left:1.2rem;font-family:'Fraunces',serif;font-style:italic;color:var(--vista-white);font-size:1.1rem;}
+
+/* ===== FOOTER — rt-footer (two-column: nav / hours+cta, then location+socials) ===== */
+footer{background:var(--platinum);padding:var(--sp-3) clamp(1.5rem,5vw,4rem) var(--sp-2);}
+.footer-top{display:flex;justify-content:space-between;gap:var(--sp-3);flex-wrap:wrap;padding-bottom:var(--sp-2);border-bottom:1px solid rgba(47,60,44,0.15);}
+.footer-col h5{font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--shadow-gold);margin-bottom:1rem;}
+.footer-col a{display:block;font-size:0.92rem;color:var(--marsh);margin-bottom:0.6rem;}
+.footer-hours{display:flex;gap:2.5rem;margin-bottom:1.5rem;flex-wrap:wrap;}
+.footer-hours div div:first-child{font-weight:500;font-size:0.92rem;}
+.footer-hours div div:last-child{font-size:0.85rem;color:var(--dim-gray);}
+.footer-bottom-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding-top:var(--sp-2);}
+.footer-social{display:flex;gap:1rem;}
+.footer-social a{font-size:0.8rem;text-transform:uppercase;letter-spacing:0.08em;border-bottom:1px solid transparent;}
+.footer-social a:hover{border-color:var(--burlywood);color:var(--burlywood);}
+.footer-copyright{text-align:center;font-size:0.72rem;color:var(--dim-gray);margin-top:var(--sp-2);padding-top:1.2rem;border-top:1px solid rgba(47,60,44,0.15);}
 
 @media (max-width:900px){
-  .about,.booking-wrap{grid-template-columns:1fr;}
-  .wellness-grid,.growth-row{grid-template-columns:1fr;}
-  .growth-row > div{border-right:none;border-bottom:1px solid rgba(47,60,44,0.15);padding:1.5rem 0;}
+  .about-top,.about-bottom,.growth-row,.pricing-cards,.classes-v2-cards{grid-template-columns:1fr;display:grid;}
+  .growth-row{display:flex;flex-direction:column;}
+  .therapy-grid,.masonry{grid-template-columns:repeat(2,1fr);}
   .class-row{grid-template-columns:1fr 1fr;}
-  .gallery-grid{grid-template-columns:repeat(2,1fr);}
-  .gallery-grid > *{height:220px !important;margin-top:0 !important;}
   .nav-links{display:none;}
+  .booking-images{flex-direction:column;}
 }
 </style>
 </head>
 <body>
 
 <nav class="nav" id="mainNav">
-  <div class="nav-left">
-    <a href="#" class="brand">Mary Justus</a>
-    <span class="tagline-mini">Presence · Love · Power</span>
-  </div>
+  <div class="nav-left"><a href="#" class="brand">Mary Justus</a></div>
   <div class="nav-right">
     <div class="nav-links">
       <a href="#about">About</a>
-      <a href="#offerings">Sessions</a>
       <a href="#classes">Reiki Training</a>
+      <a href="#pricing">Investment</a>
       <a href="#contact">Contact</a>
     </div>
-    <a href="#contact" class="nav-cta">Begin</a>
+    <div class="rt-btn-icon">
+      <span>Begin</span>
+      <div class="icon-wrap">
+        <div class="icon-one">→</div>
+        <div class="icon-two" style="color:var(--burlywood)">→</div>
+      </div>
+    </div>
   </div>
 </nav>
 
+<!-- ===== HERO ===== -->
 <section class="hero">
-  <div class="hero-stack" id="heroStack">
+  <div class="hero-bg" id="heroBg">
     <img class="active" src="https://images.unsplash.com/photo-1551621962-b8f40dee2f2c?q=80&w=1600&auto=format&fit=crop" alt="">
     <img src="https://images.unsplash.com/photo-1562026700-3425431ecb5b?q=80&w=1170&auto=format&fit=crop" alt="">
     <img src="https://images.unsplash.com/photo-1585860095562-08f80ef43d43?q=80&w=687&auto=format&fit=crop" alt="">
-    <img src="https://images.unsplash.com/photo-1485808269728-77bb07c059a8?q=80&w=1170&auto=format&fit=crop" alt="">
   </div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <p class="eyebrow rv">The Architecture of Conscious Healing</p>
-    <h1 class="hero-big rv">Come home to your true self <em>& shine your light.</em></h1>
-    <p class="hero-sub rv">There is a quiet miracle in the mystery of meeting. Psychospiritual healing, Reiki, and somatic work in Hillsborough, NC.</p>
-    <div class="hero-ctas rv">
-      <a href="#contact" class="btn btn-primary">Begin a Session</a>
-      <a href="#classes" class="btn btn-ghost">Reiki Training</a>
+  <div class="hero-main">
+    <div class="hero-left rv">
+      <div class="hero-big-text">Mary Justus</div>
+      <h1>Psychospiritual <em>healing.</em></h1>
+      <div class="rt-btn rt-btn-gold"><span>Begin Your Healing Journey</span></div>
+    </div>
+    <div class="hero-right rv">
+      <div class="faq-block open" data-faq>
+        <h3>Presence</h3>
+        <div class="faq-answer"><p>Presence does not need to be achieved — it is the immediate truth of this moment.</p></div>
+      </div>
+      <div class="faq-block" data-faq>
+        <h3>Love</h3>
+        <div class="faq-answer"><p>A compassionate field held without demand, dissolving the belief in separation.</p></div>
+      </div>
+      <div class="faq-block" data-faq>
+        <h3>Power</h3>
+        <div class="faq-answer"><p>The power of your own light, recognized and embodied — remembered, not made new.</p></div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- ===== WELLNESS ===== -->
+<section class="wellness">
+  <div class="wrap-md wellness-top rv">
+    <div class="glyph">✦</div>
+    <h2>Inspiring conscious healing through <em>embodied presence</em> and somatic wisdom</h2>
+    <p>Reiki, polarity therapy, and somatic work for the nervous system and severe complex trauma.</p>
+    <div class="rt-btn rt-btn-gold"><span>Book a Session</span></div>
+  </div>
+  <div class="wrap therapy-grid rv">
+    <div class="therapy-block"><div class="icon">✦</div><h4>Reiki</h4><p>Usui Reiki Master-level attunement, restoring flow to the body's energetic field.</p></div>
+    <div class="therapy-block"><div class="icon">✦</div><h4>Polarity Therapy</h4><p>Board-certified polarity work bridging body, mind, and energy.</p></div>
+    <div class="therapy-block"><div class="icon">✦</div><h4>Somatic Movement</h4><p>Registered somatic therapy for the nervous system and complex trauma.</p></div>
+    <div class="therapy-block"><div class="icon">✦</div><h4>Craniosacral</h4><p>Gentle hands-on work supporting deep nervous-system regulation.</p></div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
 <section class="bg-white" id="about">
-  <div class="section-inner">
-    <div class="about">
-      <div class="about-photo rv">
-        <img src="https://images.squarespace-cdn.com/content/v1/6869c2fba7c996116c91c0be/7f513491-29fe-4df4-b81b-00ce271fd53a/6Q0A2105printcropped.jpg" alt="Mary Justus, psychospiritual practitioner">
-      </div>
-      <div class="about-body rv">
-        <p class="eyebrow">Where the Wisdom of the Body Meets the Mystery of Being</p>
+  <div class="wrap">
+    <div class="about-top rv">
+      <img src="https://images.squarespace-cdn.com/content/v1/6869c2fba7c996116c91c0be/7f513491-29fe-4df4-b81b-00ce271fd53a/6Q0A2105printcropped.jpg" alt="Mary Justus">
+      <div>
+        <p class="eyebrow" style="margin-bottom:1rem;">The Founder</p>
         <h2>Meet <em>Mary.</em></h2>
-        <p>Mary Justus is a psychospiritual practitioner, researcher, and teacher exploring the deeper architecture of Reality and the evolutionary unfolding of consciousness during this time of profound transition. Through the lenses of somatics, spiritual psychology, esoteric philosophy, and embodied energetic modalities, she supports others in becoming more authentic, resilient, discerning, and aligned with the deeper intelligence of the Soul.</p>
-        <p>A mother, artist, and lifelong student of both the seen and unseen dimensions of life, Mary's path was profoundly shaped by a near-death experience in early adulthood, which awakened a deep devotion to exploring consciousness, healing, and the relationship between Awareness and embodiment.</p>
-        <blockquote class="about-quote">At the deepest level of healing, what is dissolving is not just symptoms or patterns, but the deep, unconscious ingrained belief in separation.</blockquote>
-        <div class="credentials">
-          <span class="credential">BCPP</span>
-          <span class="credential">RSMT</span>
-          <span class="credential">RSME</span>
-          <span class="credential">LMBT</span>
-          <span class="credential">Reiki Master Teacher</span>
-          <span class="credential">Certified Perinatal Therapist</span>
-          <span class="credential">Quantum Energy Medicine</span>
-          <span class="credential">Realization Process Teacher</span>
+        <p>Mary Justus is a psychospiritual practitioner, researcher, and teacher exploring the deeper architecture of Reality and the evolutionary unfolding of consciousness. Her work bridges somatics, spiritual psychology, esoteric philosophy, and embodied energetic modalities.</p>
+        <p>Her path was profoundly shaped by a near-death experience in early adulthood, awakening a devotion to consciousness, healing, and the relationship between Awareness and embodiment.</p>
+        <div class="rt-btn"><span>Read Her Full Story</span></div>
+      </div>
+    </div>
+    <div class="about-bottom rv">
+      <div class="about-bottom-left">
+        <img src="https://images.unsplash.com/photo-1629275622835-f42d081fe666?q=80&w=800&auto=format&fit=crop" alt="">
+        <div class="about-bottom-left-text">
+          <div class="h3">"At the deepest level of healing, what is dissolving is the belief in separation."</div>
+          <div class="rt-btn" style="border-color:var(--vista-white);color:var(--vista-white);width:fit-content;"><span>Her Philosophy</span></div>
         </div>
       </div>
+      <div class="about-bottom-right">
+        <img src="https://images.unsplash.com/photo-1605552981700-68484762d021?q=80&w=800&auto=format&fit=crop" alt="">
+      </div>
+    </div>
+    <div class="counter-row rv">
+      <div class="counter-block"><div class="num" data-count="8">0</div><div class="label">Certifications & Trainings</div></div>
+      <div class="counter-block"><div class="num" data-count="1">0</div><div class="label">Practitioner, Individual Focus</div></div>
     </div>
   </div>
 </section>
 
-<section class="bg-dark">
-  <div class="section-inner">
-    <div class="section-head rv">
-      <p class="eyebrow">Light · Love · Power</p>
-      <h2>Three pillars of <em>conscious healing.</em></h2>
-    </div>
-  </div>
-  <div class="wellness-grid">
-    <div class="wellness-card rv"><span class="num">I</span><h3>Presence</h3><p>Presence does not need to be achieved. The part of you that is aware right now is this immediate truth.</p></div>
-    <div class="wellness-card rv"><span class="num">II</span><h3>Love</h3><p>A compassionate field held without demand, dissolving the unconscious belief in separation.</p></div>
-    <div class="wellness-card rv"><span class="num">III</span><h3>Power</h3><p>The power of your own light, recognized and embodied — remembered, not transformed into something new.</p></div>
-  </div>
-</section>
-
-<section class="bg-platinum">
-  <div class="section-inner">
+<!-- ===== GROWTH (checklist) ===== -->
+<section class="growth">
+  <div class="wrap">
+    <h2 class="rv">A practice built on <em>trauma-informed</em> care</h2>
     <div class="growth-row rv">
-      <div><div class="stat">8</div><div class="label">Certifications & Trainings</div></div>
-      <div><div class="stat">1:1</div><div class="label">Individual & Partner Sessions</div></div>
-      <div><div class="stat">NC</div><div class="label">In-Person, Hillsborough</div></div>
+      <div class="growth-images">
+        <img class="big" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" alt="">
+        <img class="small" src="https://images.unsplash.com/photo-1461532257246-777de18cd58b?q=80&w=1176&auto=format&fit=crop" alt="">
+      </div>
+      <div class="growth-text">
+        <p>Sessions guided with somatic and embodiment-based foundations, specialized in working with severe complex trauma and plant medicine integration.</p>
+        <div class="check-row"><div class="check-icon">✓</div><span>Nervous system regulation</span></div>
+        <div class="check-row"><div class="check-icon">✓</div><span>Embodied presence, not performance</span></div>
+        <div class="check-row"><div class="check-icon">✓</div><span>Trauma-informed, at your pace</span></div>
+        <div class="check-row"><div class="check-icon">✓</div><span>Individual and partner sessions</span></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="bg-white" id="classes">
-  <div class="section-inner">
-    <div class="section-head rv">
-      <p class="eyebrow">Classes & Workshops</p>
-      <h2>Embodied Reiki: <em>First Degree.</em></h2>
-    </div>
+<!-- ===== CLASS TABLE ===== -->
+<section class="bg-white class-table-wrap" id="classes">
+  <div class="wrap-md">
+    <h2 class="rv">Find your path into <em>Reiki training.</em></h2>
     <div class="class-table rv">
       <div class="class-row">
-        <div class="name">Reiki Level 1 — First Degree + Somatic Foundations</div>
+        <div class="name">Reiki Level 1 — First Degree</div>
         <div class="meta"><span>Dates</span>June 5–6, 2026</div>
         <div class="meta"><span>Location</span>Chapel Hill, NC</div>
-        <div class="meta"><span>Investment</span>$325, or $75 deposit</div>
+        <div class="meta"><span>Investment</span>$325 or $75 deposit</div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="bg-platinum" id="offerings">
-  <div class="section-inner">
-    <div class="section-head rv">
-      <p class="eyebrow">Individual & Partner Sessions · In-Person</p>
-      <h2>A gallery of the <em>deep work.</em></h2>
-    </div>
-    <div class="gallery-grid rv">
-      <img src="https://images.unsplash.com/photo-1629275622835-f42d081fe666?q=80&w=800&auto=format&fit=crop" alt="Energy work">
-      <img src="https://images.unsplash.com/photo-1605552981700-68484762d021?q=80&w=800&auto=format&fit=crop" alt="Reiki table session">
-      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" alt="Grounding in nature">
-      <img src="https://images.unsplash.com/photo-1461532257246-777de18cd58b?q=80&w=1176&auto=format&fit=crop" alt="Community and connection">
+<!-- ===== BOOKING TEASER ===== -->
+<section class="bg-platinum booking-teaser">
+  <div class="wrap">
+    <div class="big-label rv">Begin</div>
+    <div class="booking-images rv">
+      <div class="booking-left">
+        <h3>Experience conscious healing today</h3>
+        <div class="rt-btn"><span>Start Your Journey</span></div>
+      </div>
+      <div class="booking-mid"><img src="https://images.unsplash.com/photo-1585860095562-08f80ef43d43?q=80&w=687&auto=format&fit=crop" alt=""></div>
+      <div class="booking-right"><img src="https://images.unsplash.com/photo-1629275622835-f42d081fe666?q=80&w=800&auto=format&fit=crop" alt=""></div>
     </div>
   </div>
 </section>
 
-<section class="bg-white">
-  <div class="section-inner">
-    <div class="section-head rv">
-      <p class="eyebrow">Investment</p>
-      <h2>Reiki Level 1 <em>Training.</em></h2>
+<!-- ===== GALLERY ===== -->
+<section class="bg-white" id="offerings">
+  <div class="wrap">
+    <div class="gallery-sentence rv">
+      <span>A</span><span>quiet</span>
+      <img src="https://images.unsplash.com/photo-1551621962-b8f40dee2f2c?q=80&w=1600&auto=format&fit=crop" alt="">
+      <span>space</span><span>for</span><span>embodied</span>
+      <img src="https://images.unsplash.com/photo-1562026700-3425431ecb5b?q=80&w=1170&auto=format&fit=crop" alt="">
+      <span>Reiki</span><span>sessions</span>
     </div>
-    <div class="pricing-card rv">
-      <p class="eyebrow">Two-Day Immersive</p>
-      <h3>First Degree + Somatic Energy Foundations</h3>
-      <div class="price">$325<span> / or $75 deposit</span></div>
+    <div class="masonry rv">
+      <div class="masonry-item"><img src="https://images.unsplash.com/photo-1605552981700-68484762d021?q=80&w=800&auto=format&fit=crop" alt=""><div class="masonry-overlay"><div class="masonry-plus"></div></div><div class="masonry-label">Reiki & Energy Work</div></div>
+      <div class="masonry-item"><img src="https://images.unsplash.com/photo-1629275622835-f42d081fe666?q=80&w=800&auto=format&fit=crop" alt=""><div class="masonry-overlay"><div class="masonry-plus"></div></div><div class="masonry-label">Polarity Therapy</div></div>
+      <div class="masonry-item"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" alt=""><div class="masonry-overlay"><div class="masonry-plus"></div></div><div class="masonry-label">Grounding in Nature</div></div>
+      <div class="masonry-item"><img src="https://images.unsplash.com/photo-1461532257246-777de18cd58b?q=80&w=1176&auto=format&fit=crop" alt=""><div class="masonry-overlay"><div class="masonry-plus"></div></div><div class="masonry-label">Community</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section class="pricing" id="pricing">
+  <div class="pricing-head rv">
+    <h2>Two ways to begin <em>Reiki Level 1.</em></h2>
+    <p>Payment plans are available upon request. Space is intentionally limited to support depth and safety.</p>
+  </div>
+  <div class="pricing-cards rv">
+    <div class="pricing-card">
+      <h4>Deposit Plan</h4>
+      <div class="price">$75</div>
+      <div class="price-label">Deposit, balance due day of class</div>
+      <ul>
+        <li>Reserves your space</li>
+        <li>$250 balance due day-of</li>
+        <li>Full curriculum included</li>
+      </ul>
+      <p class="desc">A flexible way to begin without paying in full up front.</p>
+      <div class="rt-btn" style="border-color:rgba(249,246,243,0.4);color:var(--vista-white);"><span>Reserve With Deposit</span></div>
+    </div>
+    <div class="pricing-card active">
+      <h4>Full Payment</h4>
+      <div class="price">$325</div>
+      <div class="price-label">Two-day immersive training</div>
       <ul>
         <li>Four First Degree Reiki attunements</li>
-        <li>History and lineage of Reiki, precepts as embodied practice</li>
-        <li>Grounding, centering, energetic protection techniques</li>
-        <li>Introduction to chakras, energetic harmonics, the human energy field</li>
-        <li>Supervised practice, study manual, certificate of completion</li>
+        <li>History, lineage, and precepts of Reiki</li>
+        <li>Grounding, centering, energetic protection</li>
+        <li>Chakras, harmonics, the human energy field</li>
+        <li>Supervised practice, manual, certificate</li>
       </ul>
-      <a href="#contact" class="btn btn-primary">Reserve Your Space</a>
+      <p class="desc">June 5–6, 2026 · Chapel Hill, NC</p>
+      <div class="rt-btn rt-btn-gold"><span>Reserve Your Space</span></div>
     </div>
   </div>
 </section>
 
-<section class="bg-dark">
-  <div class="section-inner testimonial rv">
-    <blockquote>"As a traditionally-trained physician... her treatments are by far the single factor responsible for improving my quality of life... Mary is truly an angel."</blockquote>
-    <cite>— Oren C.</cite>
+<!-- ===== TESTIMONIAL (single real quote — no fabricated slider) ===== -->
+<section class="bg-white story">
+  <div class="wrap-md">
+    <div class="big-label rv">Words From a Client</div>
+    <div class="quote-mark rv">"</div>
+    <blockquote class="rv">As a traditionally-trained physician... her treatments are by far the single factor responsible for improving my quality of life... Mary is truly an angel.</blockquote>
+    <div class="rv"><span class="name">Oren C.</span><br><span class="role">Physician</span></div>
   </div>
 </section>
 
+<!-- ===== REIKI TRAINING SHOWCASE (photo cards, honest video→photo substitution) ===== -->
+<section class="classes-v2" id="reiki-showcase">
+  <div class="wrap">
+    <div class="big-heading rv">Reiki Training</div>
+    <h3 class="rv">A two-day immersive path into First Degree Reiki</h3>
+    <div class="classes-v2-cards rv">
+      <div class="classes-v2-card"><img src="https://images.unsplash.com/photo-1562026700-3425431ecb5b?q=80&w=1170&auto=format&fit=crop" alt=""><div class="cap">Attunements</div></div>
+      <div class="classes-v2-card"><img src="https://images.unsplash.com/photo-1585860095562-08f80ef43d43?q=80&w=687&auto=format&fit=crop" alt=""><div class="cap">Grounding Practice</div></div>
+      <div class="classes-v2-card"><img src="https://images.unsplash.com/photo-1629275622835-f42d081fe666?q=80&w=800&auto=format&fit=crop" alt=""><div class="cap">Energy Field Study</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
 <section class="bg-platinum" id="contact">
-  <div class="section-inner">
-    <div class="booking-wrap">
-      <div class="booking-info rv">
-        <p class="eyebrow">Contact</p>
-        <h3>Come as you are.</h3>
-        <p>In-person sessions and Reiki training held in Hillsborough, NC.</p>
-        <p>Individual, partner, and small-group work available by request.</p>
-      </div>
-      <form id="contactForm" class="booking-form rv">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" rows="5"></textarea>
-        <button type="submit" id="submitBtn">Send Message</button>
-      </form>
-    </div>
+  <div class="wrap-md" style="text-align:center;">
+    <p class="eyebrow rv" style="margin-bottom:1rem;">Contact</p>
+    <h2 class="rv" style="font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.8rem,3.4vw,2.6rem);margin-bottom:2rem;">Come as you are.</h2>
+    <form id="contactForm" class="rv" style="display:flex;flex-direction:column;gap:1rem;max-width:480px;margin:0 auto;">
+      <input type="text" name="name" placeholder="Your Name" required style="padding:1rem;border:1px solid rgba(47,60,44,0.2);background:transparent;font-family:'Jost',sans-serif;">
+      <input type="email" name="email" placeholder="Your Email" required style="padding:1rem;border:1px solid rgba(47,60,44,0.2);background:transparent;font-family:'Jost',sans-serif;">
+      <textarea name="message" placeholder="Your Message" rows="4" style="padding:1rem;border:1px solid rgba(47,60,44,0.2);background:transparent;font-family:'Jost',sans-serif;"></textarea>
+      <button type="submit" id="submitBtn" class="rt-btn rt-btn-gold" style="cursor:pointer;justify-content:center;"><span>Send Message</span></button>
+    </form>
   </div>
 </section>
 
+<!-- ===== FOOTER ===== -->
 <footer>
-  <div class="footer-inner">
-    <div>
-      <div class="footer-brand">Mary Justus</div>
-      <p class="footer-tagline">Come home to your true self and shine your light in the world.</p>
+  <div class="wrap footer-top">
+    <div class="footer-col">
+      <h5>Our Practice</h5>
+      <a href="#classes">Reiki Training</a>
+      <a href="#offerings">Sessions</a>
+      <a href="#pricing">Investment</a>
+      <a href="#about">The Founder</a>
     </div>
-    <div class="footer-links">
-      <div class="footer-col">
-        <h4>Explore</h4>
-        <a href="#about">About</a>
-        <a href="#offerings">Sessions</a>
-        <a href="#classes">Reiki Training</a>
+    <div>
+      <div class="footer-hours">
+        <div><div>Sessions</div><div>By Appointment</div></div>
+        <div><div>Location</div><div>Hillsborough, NC</div></div>
       </div>
-      <div class="footer-col">
-        <h4>Connect</h4>
-        <a href="#contact">Contact</a>
-        <a href="#">Instagram</a>
+      <div class="rt-btn-icon">
+        <span>Start Your Healing Journey</span>
+        <div class="icon-wrap"><div class="icon-one">→</div><div class="icon-two" style="color:var(--burlywood)">→</div></div>
       </div>
     </div>
   </div>
-  <div class="footer-bottom">© 2026 Mary Justus. All rights reserved.</div>
+  <div class="wrap footer-bottom-row">
+    <div><h5>Location</h5><div>Hillsborough, North Carolina</div></div>
+    <div class="footer-social">
+      <a href="#" target="_blank">Instagram</a>
+    </div>
+  </div>
+  <div class="footer-copyright">© 2026 Mary Justus. All rights reserved.</div>
 </footer>
 
 <script>
 const nav = document.getElementById('mainNav');
-window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive:true });
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40), { passive:true });
 
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => e.isIntersecting && e.target.classList.add('visible'));
 }, { threshold:0.12 });
 document.querySelectorAll('.rv').forEach(el => io.observe(el));
 
+document.querySelectorAll('[data-faq]').forEach(block => {
+  block.addEventListener('click', () => {
+    const wasOpen = block.classList.contains('open');
+    document.querySelectorAll('[data-faq]').forEach(b => b.classList.remove('open'));
+    if (!wasOpen) block.classList.add('open');
+  });
+});
+
 (function () {
-  const imgs = document.querySelectorAll('#heroStack img');
+  const imgs = document.querySelectorAll('#heroBg img');
   let i = 0;
   setInterval(() => {
     imgs[i].classList.remove('active');
@@ -369,18 +519,37 @@ document.querySelectorAll('.rv').forEach(el => io.observe(el));
   }, 4500);
 })();
 
+const counterIO = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const target = parseInt(el.dataset.count, 10);
+    let cur = 0;
+    const step = Math.max(1, Math.round(target / 30));
+    const tick = () => {
+      cur = Math.min(target, cur + step);
+      el.textContent = cur;
+      if (cur < target) requestAnimationFrame(tick);
+    };
+    tick();
+    counterIO.unobserve(el);
+  });
+}, { threshold:0.5 });
+document.querySelectorAll('.counter-block .num').forEach(el => counterIO.observe(el));
+
 document.getElementById('contactForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   const btn = document.getElementById('submitBtn');
-  btn.textContent = 'Sending...'; btn.disabled = true;
+  const span = btn.querySelector('span');
+  span.textContent = 'Sending...'; btn.disabled = true;
   try {
     const res = await fetch('https://designmywebsitenow.com/api/contact', {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ to: 'wviiiproductions@gmail.com', clientName: 'Mary Justus', ...Object.fromEntries(new FormData(this)) })
     });
-    if (res.ok) { btn.textContent = 'Message Received ✦'; this.reset(); }
-    else { btn.textContent = 'Something went wrong — try again'; btn.disabled = false; }
-  } catch { btn.textContent = 'Something went wrong — try again'; btn.disabled = false; }
+    if (res.ok) { span.textContent = 'Message Received ✦'; this.reset(); }
+    else { span.textContent = 'Something went wrong'; btn.disabled = false; }
+  } catch { span.textContent = 'Something went wrong'; btn.disabled = false; }
 });
 </script>
 </body>
