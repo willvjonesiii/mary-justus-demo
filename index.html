@@ -395,8 +395,8 @@ body.a11y-mode .drama{font-weight:500 !important;}
 
         <g id="livePetals">
           <path class="knot-live-petal" data-pillar="presence" transform="rotate(0)"   d="M0,0 Q65,-55 0,-135 Q-65,-55 0,0 Z"></path>
-          <path class="knot-live-petal" data-pillar="love"     transform="rotate(120)" d="M0,0 Q65,-55 0,-135 Q-65,-55 0,0 Z"></path>
-          <path class="knot-live-petal" data-pillar="power"    transform="rotate(240)" d="M0,0 Q65,-55 0,-135 Q-65,-55 0,0 Z"></path>
+          <path class="knot-live-petal" data-pillar="power"    transform="rotate(120)" d="M0,0 Q65,-55 0,-135 Q-65,-55 0,0 Z"></path>
+          <path class="knot-live-petal" data-pillar="love"     transform="rotate(240)" d="M0,0 Q65,-55 0,-135 Q-65,-55 0,0 Z"></path>
         </g>
 
         <circle class="knot-center-dot" cx="0" cy="0" r="4"></circle>
@@ -586,7 +586,7 @@ document.querySelectorAll('.rv').forEach(el => io.observe(el));
   const livePetals = Array.from(document.querySelectorAll('.knot-live-petal'));
   const labels = Array.from(document.querySelectorAll('.knot-label'));
   const pillars = ['presence', 'love', 'power'];
-  const angleFor = { presence: 0, love: 120, power: 240 };
+  const angleFor = { presence: 0, power: 120, love: 240 };
   const seen = new Set();
   let activePillar = null;
 
