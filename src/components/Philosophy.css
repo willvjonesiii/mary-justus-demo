@@ -1,0 +1,63 @@
+.philosophy-section {
+  position: relative;
+  background: transparent;
+}
+
+.philosophy-intro {
+  max-width: 800px;
+  margin: 0 auto 80px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: var(--color-text);
+  margin-bottom: 24px;
+}
+
+.section-subtitle {
+  font-size: 1.4rem;
+  color: var(--color-primary);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.pillar-card {
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.pillar-card:hover {
+  transform: translateY(-10px);
+}
+
+.pillar-title {
+  font-size: 2rem;
+  color: var(--color-accent);
+  margin-bottom: 20px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.pillar-desc {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+@media (max-width: 900px) {
+  .pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .section-title {
+    font-size: 2.5rem;
+  }
+}
