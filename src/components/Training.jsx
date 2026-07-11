@@ -5,7 +5,7 @@ const Training = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <section className="relative z-10 w-full bg-clinical-gold/92 py-16 md:py-24" id="training">
+    <section className="relative z-10 w-full bg-clinical-honey/92 py-16 md:py-24" id="training">
       <div className="max-w-[90rem] mx-auto px-4 md:px-8 w-full">
         <motion.a 
           href="#reiki-training-details"
