@@ -14,7 +14,7 @@ const Hero = () => {
       <div 
         className="absolute top-0 right-0 w-full md:w-[65%] h-[100vh] z-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse 50% 50% at center, #faf9f7 50%, transparent 100%)'
+          background: 'radial-gradient(ellipse 50% 50% at center, var(--color-clinical-white) 50%, transparent 100%)'
         }}
       ></div>
 

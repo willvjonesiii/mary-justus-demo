@@ -5,7 +5,7 @@ const Training = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <section className="relative z-10 w-full bg-clinical-gold py-16 md:py-24" id="training">
+    <section className="relative z-10 w-full bg-clinical-gold/92 py-16 md:py-24" id="training">
       <div className="max-w-[90rem] mx-auto px-4 md:px-8 w-full">
         <motion.a 
           href="#reiki-training-details"
@@ -15,7 +15,7 @@ const Training = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="relative block group overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-700 bg-[#faf9f7] rounded-[2rem]"
+          className="relative block group overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-700 bg-clinical-white rounded-[2rem]"
         >
         <div className="flex flex-col md:flex-row h-full relative">
           

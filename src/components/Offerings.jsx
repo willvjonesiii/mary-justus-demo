@@ -25,7 +25,7 @@ const Offerings = () => {
   ];
 
   return (
-    <section className="relative z-20 w-full bg-[#faf9f7] pt-10 pb-16 md:pb-32 shadow-[0_-15px_40px_15px_rgba(0,0,0,0.4)]" id="offerings">
+    <section className="relative z-20 w-full bg-clinical-sand pt-10 pb-16 md:pb-32 shadow-[0_-6px_20px_0_rgba(0,0,0,0.06)]" id="offerings">
       <div className="max-w-[90rem] mx-auto px-4 md:px-8 w-full">
         
         <motion.div 

@@ -21,7 +21,7 @@ const testimonials = [
 
 const Testimonial = () => {
   return (
-    <section className="relative z-10 w-full bg-[#faf9f7] py-16 md:py-24" id="testimonial">
+    <section className="relative z-10 w-full bg-clinical-sand py-16 md:py-24" id="testimonial">
       <style>
         {`
           @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');

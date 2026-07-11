@@ -8,7 +8,7 @@ const MeetMary = () => {
   const yText = useTransform(scrollYProgress, [0, 1], [0, 30]);
 
   return (
-    <section className="relative z-10 w-full bg-clinical-slate/5 py-16 md:py-24" id="practitioner">
+    <section className="relative z-10 w-full bg-clinical-sand py-16 md:py-24" id="practitioner">
       <div className="max-w-[90rem] mx-auto px-4 md:px-8 w-full">
         <div className="w-full rounded-[2rem] overflow-hidden bg-white/40 border border-white shadow-sm px-6 py-16 md:px-16 md:py-24 flex items-center">
           <div className="max-w-7xl mx-auto w-full relative">

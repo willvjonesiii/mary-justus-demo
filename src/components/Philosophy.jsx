@@ -70,7 +70,7 @@ const Philosophy = () => {
         }}
       />
       {/* Window Depth Shadow from the section above */}
-      <div className="absolute -top-10 left-0 w-full h-10 z-10 pointer-events-none bg-[#faf9f7] shadow-[0_15px_40px_10px_rgba(0,0,0,0.5)]"></div>
+      <div className="absolute -top-10 left-0 w-full h-10 z-10 pointer-events-none bg-clinical-white shadow-[0_15px_40px_10px_rgba(0,0,0,0.5)]"></div>
 
       {/* Centered Triquetra Dial */}
       <div className="hidden md:flex absolute top-[42%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] items-center justify-center z-0 pointer-events-none">

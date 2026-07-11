@@ -13,7 +13,7 @@ import MobileGate from './components/MobileGate';
 // Removed CustomCursor
 // The global ambient sacred geometry background
 const BackgroundGeometry = () => (
-  <div className="fixed inset-0 z-[-1] pointer-events-none overflow-hidden bg-[#faf9f7]">
+  <div className="fixed inset-0 z-[-1] pointer-events-none overflow-hidden bg-clinical-white">
     {/* Subtle paper grain */}
     <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
     
@@ -55,7 +55,7 @@ function App() {
       
       {/* Frosted Glass Background Bar (Decoupled to prevent height snapping) */}
       <div className={`fixed top-0 left-0 w-full h-[64px] z-40 pointer-events-none transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] border-b ${
-        isScrolled ? 'bg-[#faf9f7]/90 backdrop-blur-md border-clinical-slate/10 shadow-[0_4px_30px_rgba(0,0,0,0.03)]' : 'bg-[#faf9f7]/0 backdrop-blur-none border-clinical-slate/0 shadow-[0_4px_30px_rgba(0,0,0,0)]'
+        isScrolled ? 'bg-clinical-white/90 backdrop-blur-md border-clinical-slate/10 shadow-[0_4px_30px_rgba(0,0,0,0.03)]' : 'bg-clinical-white/0 backdrop-blur-none border-clinical-slate/0 shadow-[0_4px_30px_rgba(0,0,0,0)]'
       }`}></div>
 
       {/* High-Fashion Asymmetrical Nav */}

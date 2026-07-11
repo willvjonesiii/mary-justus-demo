@@ -4,7 +4,7 @@ import maryProfile from '../assets/mary-profile.png';
 
 const Substack = () => {
   return (
-    <section className="relative z-10 w-full bg-[#faf9f7] py-16 md:py-24" id="substack">
+    <section className="relative z-10 w-full bg-clinical-white py-16 md:py-24" id="substack">
       <div className="max-w-[90rem] mx-auto px-4 md:px-8 w-full">
         <div className="w-full rounded-[2rem] overflow-hidden bg-white border border-clinical-slate/10 shadow-sm px-6 py-16 md:px-16 md:py-24 flex justify-center">
           <div className="w-full max-w-5xl">
@@ -43,7 +43,7 @@ const Substack = () => {
                 </div>
                 
                 {/* OG Content */}
-                <div className="w-full md:w-[55%] p-10 md:p-14 flex flex-col justify-center bg-[#faf9f7]/50 relative">
+                <div className="w-full md:w-[55%] p-10 md:p-14 flex flex-col justify-center bg-clinical-white/50 relative">
                   <span className="font-sans text-[10px] tracking-widest uppercase text-clinical-slate/40 mb-4 block">
                     substack.com
                   </span>

@@ -2,6 +2,7 @@
 
 @theme {
   --color-clinical-white: #FDFCFB;
+  --color-clinical-sand: #F2E8D5;
   --color-clinical-slate: #2A2C2E;
   --color-clinical-grey: #8A8D91;
   --color-clinical-gold: #D4AF37;
@@ -24,10 +25,12 @@
 }
 
 :root {
-  --color-cream: #FCFBF9;
+  /* Aliased to the canonical clinical- tokens so there is one source of truth
+     for "near-white" and "near-black" instead of two hex values a few points apart. */
+  --color-cream: var(--color-clinical-white);
   --color-parchment: #F5EAE4;
   --color-blush: #F5E0D8;
-  --color-charcoal: #2A2826;
+  --color-charcoal: var(--color-clinical-slate);
   --color-taupe: #C5B9A5;
   --color-rose: #D1A39B;
 }
