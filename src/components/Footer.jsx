@@ -10,10 +10,11 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 relative z-10">
         <div>
           <h2 className="heading-large text-[var(--color-cream)] mb-6">
-            Begin the Journey.
+            Come as you are.
           </h2>
           <p className="font-sans font-light text-[var(--color-parchment)] max-w-sm mb-12 opacity-80">
-            Sessions are primarily held in-person in Hillsborough, NC. Reach out to schedule a consultation.
+            In-person sessions and Reiki training held in Hillsborough, NC.<br/>
+            Individual, partner, and small-group work available by request.
           </p>
           <a href="mailto:hello@maryjustus.com" className="font-display uppercase tracking-widest text-lg hover:text-[var(--color-taupe)] transition-colors">
             hello@maryjustus.com
@@ -37,7 +38,7 @@ const Footer = () => {
 
       <div className="max-w-7xl mx-auto mt-24 pt-8 border-t border-[var(--color-taupe)] border-opacity-20 flex flex-col md:flex-row justify-between items-center text-xs font-sans text-[var(--color-parchment)] opacity-60">
         <p>&copy; {new Date().getFullYear()} Mary Justus. All Rights Reserved.</p>
-        <p className="mt-4 md:mt-0">The Architecture of Conscious Healing</p>
+        <p className="mt-4 md:mt-0">Come home to your true self and shine your light in the world.</p>
       </div>
     </footer>
   );

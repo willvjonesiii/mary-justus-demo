@@ -1,67 +1,97 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import Triquetra from './Triquetra';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import heroImg from '../../mary-justus-hero.jpg';
 
 const Hero = () => {
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 1000], [0, 150]);
+  const opacity = useTransform(scrollY, [0, 500], [1, 0]);
+
   return (
-    <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[var(--color-cream)]">
-      {/* Background Image with slow zoom */}
-      <div className="absolute inset-0 w-full h-full">
-        <div className="img-reveal-wrapper w-full h-full">
-          {/* Subtle placeholder for hero image until client images are finalized. A soft, warm light image. */}
-          <img 
-            src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2000&auto=format&fit=crop" 
-            alt="Sacred Space" 
-            className="img-zoom opacity-30"
-          />
-        </div>
-        {/* Soft gradient overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[var(--color-cream)] opacity-80" />
-      </div>
+    <section className="relative h-screen w-full flex items-center justify-center overflow-hidden" id="home">
+      
+      {/* Background Blocker to erase the rotating lines behind the feathered image */}
+      <div 
+        className="absolute top-0 right-0 w-full md:w-[65%] h-[100vh] z-0 pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse 50% 50% at center, #faf9f7 50%, transparent 100%)'
+        }}
+      ></div>
 
-      {/* Massive subtle background watermark */}
-      <Triquetra className="triquetra-watermark" />
+      {/* Editorial Image placement (asymmetrical right-aligned) */}
+      <motion.div 
+        className="absolute top-0 right-0 w-full md:w-[60%] h-[100vh] z-0 overflow-hidden"
+        style={{ 
+          y, 
+          opacity,
+          WebkitMaskImage: 'radial-gradient(ellipse 50% 50% at center, black 40%, transparent 100%)',
+          maskImage: 'radial-gradient(ellipse 50% 50% at center, black 40%, transparent 100%)'
+        }}
+      >
+        <img 
+          src={heroImg} 
+          alt="Mary Justus Ethereal" 
+          className="w-full h-full object-cover object-[center_30%] sepia-[0.10] contrast-[1.1] grayscale-[10%]"
+        />
+      </motion.div>
 
-      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto flex flex-col items-center">
-        <motion.span 
-          initial={{ opacity: 0, y: 20 }}
+      {/* Overlapping Typography (Left-aligned, overlapping the image) */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 flex flex-col justify-center h-full pt-24">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="eyebrow"
+          transition={{ duration: 1.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-4xl"
         >
-          Mary Justus
-        </motion.span>
+          <div className="overflow-hidden mb-2">
+            <motion.h1 
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="text-6xl md:text-8xl lg:text-[11rem] font-serif text-clinical-slate leading-[0.85] tracking-tight"
+            >
+              Beyond
+            </motion.h1>
+          </div>
+          
+          <div className="overflow-hidden flex items-center mb-12 md:pl-4">
+            <div className="w-12 md:w-20 h-[1px] bg-clinical-gold mr-6 hidden md:block"></div>
+            <motion.h1 
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="text-6xl md:text-8xl lg:text-[11rem] font-serif text-clinical-slate leading-[0.85] tracking-tight italic"
+            >
+              Modalities.
+            </motion.h1>
+          </div>
 
-        <motion.h1 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.4 }}
-          className="heading-massive text-[var(--color-charcoal)] tracking-tight"
-        >
-          The Architecture of Conscious Healing
-        </motion.h1>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-        >
-          <a href="#offerings" className="btn-sacred mt-8">
-            Enter the Portal
-          </a>
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5, delay: 1.2 }}
+            className="flex flex-col md:flex-row items-start md:items-center space-y-6 md:space-y-0 md:space-x-12 pl-2 md:pl-48"
+          >
+            <p className="font-sans text-[10px] md:text-[11px] text-clinical-slate/60 max-w-xs leading-loose uppercase tracking-widest relative">
+              <span className="absolute -left-6 top-2 w-4 h-[1px] bg-clinical-gold hidden md:block"></span>
+              A journey of involution. Returning to the architecture of consciousness before the separation of form.
+            </p>
+            
+            {/* Scroll Indicator */}
+            <div className="flex flex-col items-center pt-8 md:pt-0">
+              <span className="font-mono text-[8px] tracking-[0.2em] text-clinical-slate/40 uppercase mb-4 rotate-90 md:rotate-0 origin-left">Scroll</span>
+              <div className="w-[1px] h-16 bg-clinical-slate/20 overflow-hidden relative">
+                <motion.div 
+                  animate={{ y: ['-100%', '100%'] }}
+                  transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
+                  className="absolute inset-0 w-full h-1/2 bg-clinical-gold"
+                />
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
-      >
-        <span className="eyebrow text-[10px] mb-4">Scroll</span>
-        <div className="w-[1px] h-12 bg-[var(--color-taupe)]" />
-      </motion.div>
+      
     </section>
   );
 };
