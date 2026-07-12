@@ -3,31 +3,34 @@ import Triquetra from './Triquetra';
 
 const Footer = () => {
   return (
-    <footer className="bg-[var(--color-charcoal)] text-[var(--color-cream)] py-24 px-8 relative overflow-hidden" id="contact">
-      {/* Large faint watermark behind footer */}
-      <Triquetra className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[120vw] opacity-5 text-[var(--color-taupe)] pointer-events-none" />
-      
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 relative z-10">
+    <footer className="bg-clinical-slate text-clinical-white py-14 md:py-16 px-8 relative overflow-hidden" id="contact">
+      {/* Faint watermark, scaled down to match the footer's actual proportions */}
+      <Triquetra className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[45vw] max-w-[420px] opacity-[0.04] text-clinical-lightGold pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 relative z-10">
         <div>
-          <h2 className="heading-large text-[var(--color-cream)] mb-6">
-            Come as you are.
+          <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-clinical-gold mb-4">
+            Contact
+          </p>
+          <h2 className="font-serif text-3xl md:text-4xl leading-tight mb-4">
+            Come as <em className="italic text-clinical-lightGold">you</em> are.
           </h2>
-          <p className="font-sans font-light text-[var(--color-parchment)] max-w-sm mb-12 opacity-80">
+          <p className="font-sans font-light text-sm text-clinical-white/70 max-w-sm mb-6 leading-relaxed">
             In-person sessions and Reiki training held in Hillsborough, NC.<br/>
             Individual, partner, and small-group work available by request.
           </p>
-          <a href="mailto:hello@maryjustus.com" className="font-display uppercase tracking-widest text-lg hover:text-[var(--color-taupe)] transition-colors">
+          <a href="mailto:hello@maryjustus.com" className="font-sans text-sm tracking-wide text-clinical-lightGold hover:text-clinical-gold transition-colors">
             hello@maryjustus.com
           </a>
         </div>
 
         <div className="flex flex-col md:items-end justify-center">
-          <nav className="flex flex-col space-y-4 md:text-right">
+          <nav className="flex flex-col space-y-2.5 md:text-right">
             {['Home', 'About', 'Offerings', 'Teaching', 'Contact'].map(link => (
-              <a 
-                key={link} 
+              <a
+                key={link}
                 href={`#${link.toLowerCase()}`}
-                className="font-display uppercase tracking-widest text-sm text-[var(--color-parchment)] hover:text-[var(--color-cream)] transition-colors"
+                className="font-sans uppercase tracking-[0.2em] text-[11px] text-clinical-white/60 hover:text-clinical-white transition-colors"
               >
                 {link}
               </a>
@@ -36,9 +39,9 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto mt-24 pt-8 border-t border-[var(--color-taupe)] border-opacity-20 flex flex-col md:flex-row justify-between items-center text-xs font-sans text-[var(--color-parchment)] opacity-60">
+      <div className="max-w-7xl mx-auto mt-10 pt-6 border-t border-clinical-lightGold/10 flex flex-col md:flex-row justify-between items-center gap-2 text-[11px] font-sans text-clinical-white/45">
         <p>&copy; {new Date().getFullYear()} Mary Justus. All Rights Reserved.</p>
-        <p className="mt-4 md:mt-0">Come home to your true self and shine your light in the world.</p>
+        <p className="font-serif italic text-clinical-white/55">Come home to your true self and shine your light in the world.</p>
       </div>
     </footer>
   );
