@@ -36,32 +36,6 @@ const BackgroundGeometry = () => (
   </div>
 );
 
-// Removed CustomCursor
-// The global ambient sacred geometry background
-const BackgroundGeometry = () => (
-  <div className="fixed inset-0 z-[-1] pointer-events-none overflow-hidden bg-[#faf9f7]">
-    {/* Subtle paper grain */}
-    <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
-    
-    {/* Massive rotating mandala lines */}
-    <motion.div 
-      animate={{ rotate: 360 }}
-      transition={{ duration: 150, repeat: Infinity, ease: "linear" }}
-      className="absolute top-1/2 left-1/2 w-[150vw] h-[150vw] md:w-[100vw] md:h-[100vw] -translate-x-1/2 -translate-y-1/2 opacity-10 flex items-center justify-center"
-    >
-      <svg viewBox="0 0 100 100" className="w-full h-full text-clinical-slate" fill="none" stroke="currentColor" strokeWidth="0.1">
-        <circle cx="50" cy="50" r="48" />
-        <circle cx="50" cy="50" r="38" />
-        <circle cx="50" cy="50" r="28" strokeDasharray="1 2" />
-        {/* Seed of life pattern lines */}
-        {[0, 60, 120, 180, 240, 300].map(angle => (
-          <circle key={angle} cx="50" cy="22" r="28" transform={`rotate(${angle} 50 50)`} />
-        ))}
-      </svg>
-    </motion.div>
-  </div>
-);
-
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
 
